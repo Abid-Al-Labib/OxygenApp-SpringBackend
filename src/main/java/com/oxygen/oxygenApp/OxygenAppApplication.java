@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class OxygenAppApplication {
@@ -154,7 +155,7 @@ public class OxygenAppApplication {
 
 		Distributor d;
 
-		var val = dr.findById(distributor.getId());
+		Optional<Distributor> val = dr.findById(distributor.getId());
 
 		if(val.isPresent())
 		{

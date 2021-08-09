@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BoothServiceProvider implements BoothService {
@@ -90,7 +91,7 @@ public class BoothServiceProvider implements BoothService {
     public Booth getBoothByName(String name) {
 
         try{
-            var booth = boothRepository.findBoothByName(name);
+            Optional<Booth> booth = boothRepository.findBoothByName(name);
             if(booth.isPresent())
             {
                 return booth.get();

@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class DistributorServiceProvider implements DistributorService{
@@ -61,7 +62,7 @@ public class DistributorServiceProvider implements DistributorService{
     public String placeOrder(String type,String size, String boothName, Integer quantity, String dateString, Integer distributorId)
     {
         Distributor distributor;
-        var val = distributorRepository.findById(distributorId);
+        Optional<Distributor> val = distributorRepository.findById(distributorId);
         if(val.isPresent())
         {
             distributor = val.get();
